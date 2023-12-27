@@ -1,23 +1,27 @@
 # TimeAgo Function
 
-The `timeAgo` function is a simple, yet powerful utility for converting past date timestamps into a human-readable relative time string, such as "5 minutes ago" or "2 days ago". This function is particularly useful for creating user-friendly time stamps in applications where understanding the relative recency of an event is more intuitive than the exact date and time.
+The `timeAgo` function is an enhanced JavaScript utility for displaying relative time. It's adept at expressing how much time has passed since or will pass until a specified timestamp, making it incredibly useful for applications that require a human-friendly representation of time differences. This function is ideal for forums, news feeds, or any application where the timing of posts and events is relevant.
 
 ## Features
 
-- **Easy to Use**: Simply pass a timestamp to the function and receive a readable string back.
-- **Dynamic Time Units**: Converts time into the most relevant unit (seconds, minutes, hours, days, months, years).
-- **Pluralization Handling**: Automatically handles pluralization of time units.
-- **Precision**: Offers a straightforward representation of time elapsed for easy reading and understanding.
+- **Bidirectional Understanding**: Accurately represents both past and future times relative to the current date.
+- **Dynamic Units**: Calculates and expresses time in the most fitting unit (seconds, minutes, hours, days, weeks, months, years).
+- **Automatic Pluralization**: Adds 's' to pluralize units appropriately.
+- **Intuitive Prefixes**: Uses "ago" for past times and "in" for future times for immediate understanding.
 
 ## How It Works
 
-The function takes a single string input, a timestamp in ISO format (e.g., "2023-11-26T21:56:18Z"). It calculates the time elapsed from the current time back to the given timestamp and then expresses this duration in the largest appropriate time unit (seconds, minutes, hours, days, months, or years).
+Input a JavaScript Date object or a timestamp in ISO 8601 format into the function. `timeAgo` will calculate the difference between the current time and the provided timestamp, then return a descriptive string in terms of the most appropriate unit, such as "2 hours ago" or "in 3 months".
 
 ## Usage
 
-```javascript
-// Import or define the timeAgo function here
+Below is an example demonstrating how to use the `timeAgo` function with a specific future date:
 
-// Example usage
-console.log(timeAgo("2023-11-26T21:56:18Z")); // Outputs: "30 days ago" (or however long it's been)
+```javascript
+// Define the timeAgo function here
+
+// Example usage with a specific timestamp
+const timestamp = "2024-11-26T21:56:18Z"; // Future date
+console.log(timeAgo(new Date(timestamp))); // Outputs: "in 1 year" (or the exact time until the date from now)
+console.log(timeAgo(timestamp)); // Outputs: "in 1 year" (or the exact time until the date from now)
 ```
