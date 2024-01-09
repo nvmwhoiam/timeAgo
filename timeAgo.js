@@ -22,6 +22,11 @@ function timeAgo(timestamp) {
         suffix = 'in';
     }
 
+    // Check for "just now" condition
+    if (secondsDiff < 5) {
+        return 'just now';
+    }
+
     // Calculate time in the most appropriate unit
     if (secondsDiff < minute) {
         unit = 'second';
